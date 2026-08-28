@@ -28,7 +28,7 @@ public class UsuarioController {
 
     @PostMapping
     public void guardarUsuario(@Valid @RequestBody Usuario usuario) {
-        usuarioService.guardarUsuario(usuario.getNombre() , usuario.getApellido());
+        usuarioService.guardarUsuario(usuario.getNombre() , usuario.getApellido(), usuario.getEmail(), usuario.getPassword());
     }
 
     @PutMapping("/{usuario_id}")

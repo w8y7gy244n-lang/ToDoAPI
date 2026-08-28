@@ -60,7 +60,7 @@ public class Usuario {
 
     public  String getPassword(){return password;}
 
-    public void setEmail(String username){this.email = email;}
+    public void setEmail(String email){this.email = email;}
 
     public  String getEmail(){return email;}
 

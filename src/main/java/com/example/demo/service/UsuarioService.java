@@ -7,6 +7,7 @@ import com.example.demo.repository.TareaRepository;
 import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -19,15 +20,20 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     public List<Usuario> obtenerUsuarios(){
         return usuarioRepository.findAll();
     }
 
-    public void guardarUsuario(String nombre, String apellido ){
+    public void guardarUsuario(String nombre, String apellido, String email, String password){
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setApellido(apellido);
+        usuario.setEmail(email);
+        usuario.setPassword(passwordEncoder.encode(password));
         usuarioRepository.save(usuario);
     }
 
