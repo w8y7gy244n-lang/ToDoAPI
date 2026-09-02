@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.dto.AuthResponse;
 import com.example.demo.dto.LogInRequest;
 import com.example.demo.security.JwtService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
+@Tag(name = "Authentication", description = "Authentication Endpoint")
 public class AuthController {
 
     @Autowired
@@ -25,6 +28,7 @@ public class AuthController {
     @Autowired
     private JwtService jwtService;
 
+    @Operation(summary = "Login", description = "Authenticates a user and returns a JWT token")
     @PostMapping("/login")
     public ResponseEntity<?> getCredentials (@RequestBody LogInRequest logInRequest) {
         String email = logInRequest.getEmail();
