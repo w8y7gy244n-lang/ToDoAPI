@@ -72,7 +72,7 @@ public class TareaService {
             tarea.setDescripcion(descripcion);
             tareaRepository.save(tarea);
         } else {
-            throw new TareaNotFoundException("Numero de tarea no existe");
+            throw new UsuarioNotFoundException("Numero de tarea no existe");
         }
     }
 
