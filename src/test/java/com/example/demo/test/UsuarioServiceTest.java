@@ -40,7 +40,7 @@ class UsuarioServiceTest {
         usuario1.setPassword("T@marindo.1234");
         usuario1.setApellido("Medina");
         usuario1.setNombre("Leshua");
-        usuario1.setEmail("alex1103m@gmail.com");
+        usuario1.setEmail("leshua@gmail.com");
 
         Usuario usuario2 = new Usuario();
         usuario2.setPassword("Winter.2018");
@@ -67,7 +67,7 @@ class UsuarioServiceTest {
         //Arrange
         String nombre = "Kike";
         String apellido = "Cuellar";
-        String email = "kike9304@gmail.com";
+        String email = "kike@gmail.com";
         String password = "T@marindo.1234";
         when(passwordEncoder.encode(anyString())).thenReturn("hashedPassword");
 
